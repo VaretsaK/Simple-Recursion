@@ -1,6 +1,3 @@
-result = ""
-
-
 def recursive_reverse(string: str) -> str:
 
     """
@@ -12,12 +9,12 @@ def recursive_reverse(string: str) -> str:
     Returns:
     str: The reversed string.
     """
-    global result
+    result = [x for x in string]
+
     if len(string) == 1:
-        result += string
-        return result
-    result += string[-1]
-    return recursive_reverse(string[:-1])
+        return string[0]
+
+    return result.pop() + recursive_reverse("".join([x for x in result]))
 
 
 def main() -> None:
